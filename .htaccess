@@ -1,0 +1,41 @@
+# For full documentation and other suggested options, please see
+# svn.modxcms.com/docs/display/MODx096/Friendly+URL+Solutions
+# including for unexpected logouts in multi-server/cloud environments
+# and especially for the first three commented out rules
+
+#php_flag register_globals Off
+AddDefaultCharset utf-8
+#php_value date.timezone Europe/Moscow
+
+#Options +FollowSymlinks
+RewriteEngine On
+RewriteBase /
+RewriteCond %{SERVER_PORT} !^443$
+RewriteRule .* https://%{SERVER_NAME}%{REQUEST_URI} [R=301,L]
+# Fix Apache internal dummy connections from breaking [(site_url)] cache
+#RewriteCond %{HTTP_USER_AGENT} ^.*internal\ dummy\ connection.*$ [NC]
+#RewriteRule .* — [F,L]
+
+# Rewrite domain.com -> www.domain.com — used with SEO Strict URLs plugin
+#RewriteCond %{HTTP_HOST}.
+#RewriteCond %{HTTP_HOST} !^www\.example\.com [NC]
+#RewriteRule (.*) www.example.com/$1 [R=301,L]
+
+# without www
+#RewriteCond %{HTTP_HOST}.
+#RewriteCond %{HTTP_HOST} !^example\.com [NC]
+#RewriteRule (.*) example.com/$1 [R=301,L]
+
+# without www all domian
+#RewriteCond %{HTTP_HOST}.
+#RewriteCond %{HTTP_HOST} ^www.(.*)$ [NC]
+#RewriteRule ^(.*)$ %1/$1 [R=301,L]
+
+# Exclude /assets and /manager directories and images from rewrite rules
+#RewriteRule ^(manager|assets|js|css|images|img)/.*$ — [L]
+#RewriteRule \.(jpg|jpeg|png|gif|ico)$ — [L]
+
+# For Friendly URLs
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php?q=$1 [L,QSA]

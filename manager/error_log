@@ -1,0 +1,17 @@
+[19-Dec-2018 15:03:04 Europe/Helsinki] PHP Parse error:  syntax error, unexpected 'if' (T_IF) in /home/teplomrpl/public_html/manager/includes/config.inc.php on line 136
+[19-Dec-2018 15:03:09 Europe/Helsinki] PHP Parse error:  syntax error, unexpected 'if' (T_IF) in /home/teplomrpl/public_html/manager/includes/config.inc.php on line 136
+[26-Dec-2018 16:34:20 Europe/Helsinki] Mismatched tag at line 27, column 8
+[27-Dec-2018 08:21:40 Europe/Helsinki] Mismatched tag at line 27, column 8
+[27-Dec-2018 10:38:39 Europe/Helsinki] Mismatched tag at line 27, column 8
+[27-Dec-2018 11:18:41 Europe/Helsinki] PHP Parse error:  syntax error, unexpected ''/**' (T_ENCAPSED_AND_WHITESPACE) in /home/teplomrpl/public_html/assets/cache/siteCache.idx.php on line 1335
+[27-Dec-2018 12:30:40 Europe/Helsinki] Mismatched tag at line 27, column 8
+[27-Dec-2018 12:31:33 Europe/Helsinki] Mismatched tag at line 27, column 8
+[27-Dec-2018 12:33:56 Europe/Helsinki] Mismatched tag at line 27, column 8
+[27-Dec-2018 14:01:38 Europe/Helsinki] Mismatched tag at line 27, column 8
+[28-Dec-2018 08:13:31 Europe/Helsinki] Mismatched tag at line 27, column 8
+[28-Dec-2018 11:20:55 Europe/Helsinki] Mismatched tag at line 27, column 8
+[28-Dec-2018 11:23:07 Europe/Helsinki] Mismatched tag at line 27, column 8
+[28-Dec-2018 11:23:31 Europe/Helsinki] Mismatched tag at line 27, column 8
+[28-Dec-2018 15:33:46 Europe/Helsinki] Mismatched tag at line 27, column 8
+[28-Dec-2018 16:15:15 Europe/Helsinki] Mismatched tag at line 27, column 8
+[28-Dec-2018 16:16:49 Europe/Helsinki] Mismatched tag at line 27, column 8
