@@ -303,8 +303,6 @@ if($('#websigninfrm').length > 0){
 
 					        //Предотвращение отправки формы
 							ev.preventDefault();
-							console.log($(this));
-							console.log($(this).valid());
 							
 							if ($(this).valid()) {
 								sendMeterValue();
