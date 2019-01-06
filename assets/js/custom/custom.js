@@ -294,7 +294,11 @@ if($('#websigninfrm').length > 0){
 					            cache : false
 					        }).done(function(data) {
 					            
-					            //TODO success message
+					            if (data === "too_small_value") {
+					            	$('label[for=meter-value]').text("Новое значение должно быть меньше предыдущего");
+					            } else {
+					            	alert("Показания счетчика отправлены");
+					            }
 							});
 						}
 
