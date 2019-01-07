@@ -294,11 +294,18 @@ if($('#websigninfrm').length > 0){
 					            cache : false
 					        }).done(function(data) {
 					            
+					            //alert(data);
 					            if (data === "too_small_value") {
-					            	$('label[for=meter-value]').text("Новое значение должно быть меньше предыдущего");
+
+					            	//console.log($('label[for=meter-value]'));
+					            	$('input#meter-value')
+					            		.parent()
+					            		.append("<label for='meter-value' class='error'>Новое значение должно быть меньше предыдущего</label>");
 					            } else {
 					            	alert("Показания счетчика отправлены");
 					            }
+							}).fail(function(jqXHR, textStatus, errorThrown) {
+							    alert(errorThrown);
 							});
 						}
 
