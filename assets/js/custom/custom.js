@@ -93,60 +93,63 @@ if($('#websigninfrm').length > 0){
 
 	        	} else {
 
-	        		for (var i = 0; i < resp.accountBills.length; i++) {
-					    
-					    if (resp.accountBills[i].typeId == 21
-					    	|| resp.accountBills[i].typeId == 22) {
+	        		if (resp.accountBills) {
+
+	        			for (var i = 0; i < resp.accountBills.length; i++) {
+						    
+						    if (resp.accountBills[i].typeId == 21
+						    	|| resp.accountBills[i].typeId == 22) {
 
 
-					    	heatBillData = {
-			        			'prevMonth' : prevMonth,
-			        			'accountCode' : resp.accountDetails.code,
-			        			'fio' : resp.accountDetails.fio,
-			        			'address' : resp.accountDetails.address,
-			        			'titleLong' : resp.accountBills[i].titleLong,
-			        			'titleShort' : resp.accountBills[i].titleShort,
-			        			'volume' : resp.accountBills[i].volume,
-			        			'tariff' : resp.accountBills[i].tariff,
-			        			'amountToBePaid' : resp.accountBills[i].amountToBePaid,
-			        			'heatedArea' : resp.accountBills[i].heatedArea,
-			        			'tenantCount' : resp.accountDetails.tenantCount,
-			        			'nowMonth' : nowMonth
-			        		};
+						    	heatBillData = {
+				        			'prevMonth' : prevMonth,
+				        			'accountCode' : resp.accountDetails.code,
+				        			'fio' : resp.accountDetails.fio,
+				        			'address' : resp.accountDetails.address,
+				        			'titleLong' : resp.accountBills[i].titleLong,
+				        			'titleShort' : resp.accountBills[i].titleShort,
+				        			'volume' : resp.accountBills[i].volume,
+				        			'tariff' : resp.accountBills[i].tariff,
+				        			'amountToBePaid' : resp.accountBills[i].amountToBePaid,
+				        			'heatedArea' : resp.accountBills[i].heatedArea,
+				        			'tenantCount' : resp.accountDetails.tenantCount,
+				        			'nowMonth' : nowMonth
+				        		};
 
-			        		console.log(heatBillData);
-					    } else if (resp.accountBills[i].typeId == 11
-					    	|| resp.accountBills[i].typeId == 12) {
+				        		console.log(heatBillData);
+						    } else if (resp.accountBills[i].typeId == 11
+						    	|| resp.accountBills[i].typeId == 12) {
 
 
-					    	var lastPayment = resp.accountPayments.filter(p => p.service == 'Горячая вода');
-					    	var lastPaymentDate = "";
-					    	var lastPaymentSum = "";
-					    	if (lastPayment.length > 0) {
-					    		lastPaymentDate = lastPayment[0].dateaction;
-					    		lastPaymentSum = lastPayment[0].summ;
-					    	}
+						    	var lastPayment = resp.accountPayments.filter(p => p.service == 'Горячая вода');
+						    	var lastPaymentDate = "";
+						    	var lastPaymentSum = "";
+						    	if (lastPayment.length > 0) {
+						    		lastPaymentDate = lastPayment[0].dateaction;
+						    		lastPaymentSum = lastPayment[0].summ;
+						    	}
 
-					    	waterBillData = {
-			        			'prevMonth' : prevMonth,
-			        			'accountCode' : resp.accountDetails.code,
-			        			'fio' : resp.accountDetails.fio,
-			        			'address' : resp.accountDetails.address,
-			        			'titleLong' : resp.accountBills[i].titleLong,
-			        			'titleShort' : resp.accountBills[i].titleShort,
-			        			'volume' : resp.accountBills[i].volume,
-			        			'tariff' : resp.accountBills[i].tariff,
-			        			'amountToBePaid' : resp.accountBills[i].amountToBePaid,
-			        			'heatedArea' : resp.accountBills[i].heatedArea,
-			        			'tenantCount' : resp.accountDetails.tenantCount,
-			        			'beginMeter' : resp.accountBills[i].beginMeter,
-			        			'endMeter' : resp.accountBills[i].endMeter,
-			        			'lastPaymentDate' : lastPaymentDate,
-			        			'lastPaymentSum' : lastPaymentSum,
-			        			'nowMonthYear' : nowMonthYear
-			        		};
-					    }
-					}
+						    	waterBillData = {
+				        			'prevMonth' : prevMonth,
+				        			'accountCode' : resp.accountDetails.code,
+				        			'fio' : resp.accountDetails.fio,
+				        			'address' : resp.accountDetails.address,
+				        			'titleLong' : resp.accountBills[i].titleLong,
+				        			'titleShort' : resp.accountBills[i].titleShort,
+				        			'volume' : resp.accountBills[i].volume,
+				        			'tariff' : resp.accountBills[i].tariff,
+				        			'amountToBePaid' : resp.accountBills[i].amountToBePaid,
+				        			'heatedArea' : resp.accountBills[i].heatedArea,
+				        			'tenantCount' : resp.accountDetails.tenantCount,
+				        			'beginMeter' : resp.accountBills[i].beginMeter,
+				        			'endMeter' : resp.accountBills[i].endMeter,
+				        			'lastPaymentDate' : lastPaymentDate,
+				        			'lastPaymentSum' : lastPaymentSum,
+				        			'nowMonthYear' : nowMonthYear
+				        		};
+						    }
+						}
+	        		}
 
 	        		$.get('/template/templates/account-template.hogan', function(templates){
 	        			
